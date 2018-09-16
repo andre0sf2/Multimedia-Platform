@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
+});
+
+Route::namespace('BackOffice')->group(function() {
+    Route::get('/back-office', 'HomeController@index')->name('back-office');
 });
