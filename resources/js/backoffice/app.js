@@ -16,7 +16,9 @@ window.Vue = require('vue');
  */
 
 import './components';
+import Routes from './routes';
 
 const app = new Vue({
+    router: Routes,
     el: '#admin'
 });

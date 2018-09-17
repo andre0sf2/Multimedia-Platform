@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="col-sm-12">
-        Test
+        <router-view></router-view>
     </div>
 @endsection
