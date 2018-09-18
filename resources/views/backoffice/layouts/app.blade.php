@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="admin">
-        @yield('content')
+        @yield('content2')
     </div>
     <script src="{{ asset('backoffice/js/app.js') }}" defer></script>
 </body>

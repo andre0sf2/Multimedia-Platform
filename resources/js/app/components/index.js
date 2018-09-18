@@ -1,1 +1,2 @@
 import './Video';
+import './Thumbnail';

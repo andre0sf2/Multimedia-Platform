@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.app');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::namespace('BackOffice')->group(function() {
     Route::get('/back-office', 'HomeController@index')->name('back-office');
 });
+
+Route::get('/movies/{name}', 'HomeController@getMovie')->name('movie');
