@@ -47766,6 +47766,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -47777,12 +47791,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         subSrc: {
             type: Array
+        },
+        name: {
+            type: String,
+            required: true
         }
     },
     name: 'video-component',
     data: function data() {
         return {
-            subs: []
+            movieDetails: []
         };
     },
 
@@ -47807,6 +47825,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         var self = this;
+        var url = 'http://www.omdbapi.com/?apikey=1a4f2172&plot=full&type=movie&t=' + this.name;
+
+        fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            self.movieDetails = data;
+        });
+
         this.subSrc.forEach(function (sub, i) {
             var blob = new Blob([_this.openFile(sub)]);
             var vttConverter = new __WEBPACK_IMPORTED_MODULE_0_srt_webvtt__["a" /* default */](blob); // the constructor accepts a parameer of SRT subtitle blob/file object
@@ -47819,7 +47846,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var video = document.getElementById('video'); // Main video element
                 track.src = url; // Set the converted URL to track's source
                 track.label = name[name.length - 1];
-                console.log(track.track);
                 video.textTracks[0].mode = 'showing'; // Start showing subtitle to your track
             }).catch(function (err) {
                 console.error(err);
@@ -47933,7 +47959,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", {}, [
+    _c("div", { staticClass: "container mx-auto my-4" }, [
+      _c("h1", { staticClass: "py-2" }, [_vm._v(_vm._s(_vm.name))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex" }, [
+        _c("div", { staticClass: "col-md-3" }, [
+          _c("img", {
+            staticClass: "w-100 border border-dark rounded",
+            attrs: { src: _vm.movieDetails.Poster, alt: "Poster" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-9 text-lg-left" }, [
+          _c("p", { staticClass: "py-2" }, [
+            _c("strong", { staticClass: "text-xl-left" }, [_vm._v("Ano:")]),
+            _vm._v(" " + _vm._s(_vm.movieDetails.Year))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "py-2" }, [
+            _c("strong", { staticClass: "text-xl-left" }, [_vm._v("Género:")]),
+            _vm._v(" " + _vm._s(_vm.movieDetails.Genre))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "py-2" }, [
+            _c("strong", { staticClass: "text-xl-left" }, [
+              _vm._v("Descrição:")
+            ]),
+            _vm._v(" " + _vm._s(_vm.movieDetails.Plot))
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
     _c(
       "video",
       {
@@ -47987,17 +48045,21 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(75)
+}
 var normalizeComponent = __webpack_require__(12)
 /* script */
 var __vue_script__ = __webpack_require__(53)
 /* template */
-var __vue_template__ = __webpack_require__(54)
+var __vue_template__ = __webpack_require__(77)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-6c0f40de"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -48042,52 +48104,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
-        details: {
-            type: Object,
+        movieName: {
+            type: String,
             required: true
         }
     },
     name: 'thumb-component',
     data: function data() {
-        return {};
+        return {
+            poster: null
+        };
     },
 
     methods: {},
     mounted: function mounted() {
-        console.log(this.details);
+        var _this = this;
+
+        var url = 'http://www.omdbapi.com/?apikey=1a4f2172&type=movie&t=' + this.movieName;
+        fetch(url).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            console.log(data);
+            _this.poster = data.Poster;
+        });
     }
 });
 
 /***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("a", { attrs: { href: "/movies/" + _vm.details.name } }, [
-      _c("img", {
-        attrs: { src: "https://picsum.photos/200/300", alt: "", srcset: "" }
-      })
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6c0f40de", module.exports)
-  }
-}
-
-/***/ }),
+/* 54 */,
 /* 55 */
 /***/ (function(module, exports) {
 
@@ -48098,6 +48148,116 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(76);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(46)("57767d90", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6c0f40de\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ThumbnailComponent.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6c0f40de\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ThumbnailComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(45)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.thumb[data-v-6c0f40de]{\n    border: 2px solid black;\n    border-radius: 0.25rem;\n    border-color: #343a40;\n}\n.img-box:hover .imgPoster[data-v-6c0f40de] {\n    opacity: 0.3;\n}\n.img-box:hover .middle[data-v-6c0f40de] {\n    opacity: 1;\n}\n.imgPoster[data-v-6c0f40de]{\n    opacity: 1;\n    display: block;\n    -webkit-transition: .5s ease;\n    transition: .5s ease;\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n}\n.middle[data-v-6c0f40de] {\n    -webkit-transition: .5s ease;\n    transition: .5s ease;\n    opacity: 0;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    -ms-transform: translate(-50%, -50%);\n    text-align: center;\n}\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "thumb" }, [
+    _c(
+      "a",
+      { staticClass: "img-box", attrs: { href: "/movies/" + _vm.movieName } },
+      [
+        _c("img", {
+          staticClass: "imgPoster rounded",
+          attrs: {
+            src: _vm.poster,
+            width: "200px",
+            height: "300px",
+            alt: "POSTER",
+            srcset: ""
+          }
+        }),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "middle" }, [
+      _c(
+        "div",
+        { staticClass: "p-2 shadow rounded bg-success text-white border" },
+        [_vm._v("Ver Filme")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6c0f40de", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
