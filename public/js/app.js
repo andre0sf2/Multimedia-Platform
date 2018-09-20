@@ -47960,11 +47960,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {}, [
-    _c("div", { staticClass: "container mx-auto my-4" }, [
+    _c("div", { staticClass: "my-4" }, [
       _c("h1", { staticClass: "py-2" }, [_vm._v(_vm._s(_vm.name))]),
       _vm._v(" "),
       _c("div", { staticClass: "d-flex" }, [
-        _c("div", { staticClass: "col-md-3" }, [
+        _c("div", {}, [
           _c("img", {
             staticClass: "w-100 border border-dark rounded",
             attrs: { src: _vm.movieDetails.Poster, alt: "Poster" }
@@ -48214,7 +48214,7 @@ var staticRenderFns = [
       _c(
         "div",
         { staticClass: "p-2 shadow rounded bg-success text-white border" },
-        [_vm._v("Ver Filme")]
+        [_vm._v("Visualizar")]
       )
     ])
   }

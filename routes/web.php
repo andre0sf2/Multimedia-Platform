@@ -17,7 +17,7 @@ Route::namespace('BackOffice')->group(function() {
     Route::get('/back-office', 'HomeController@index')->name('back-office');
 });
 
-Route::get('/movies', 'HomeController@getAllMovies')->name('movies');
-Route::get('/movies/{name}', 'HomeController@getMovie')->name('movie');
+Route::get('/movies', 'MovieController@getAllMovies')->name('movies');
+Route::get('/movies/{name}', 'MovieController@getMovie')->name('movie');
 
 Auth::routes();

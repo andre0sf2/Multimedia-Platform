@@ -3,7 +3,7 @@
         <a class="img-box" :href="'/movies/'+movieName">
             <img class="imgPoster rounded" :src="poster" width="200px" height="300px" alt="POSTER" srcset="">
             <div class="middle">
-                <div class="p-2 shadow rounded bg-success text-white border">Ver Filme</div>
+                <div class="p-2 shadow rounded bg-success text-white border">Visualizar</div>
             </div>
         </a>
     </div>

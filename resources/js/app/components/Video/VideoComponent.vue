@@ -1,9 +1,9 @@
 <template>
     <div class="">
-        <div class="container mx-auto my-4">
+        <div class="my-4">
             <h1 class="py-2">{{name}}</h1>
             <div class="d-flex">
-                <div class="col-md-3">
+                <div class="">
                     <img :src="movieDetails.Poster" class="w-100 border border-dark rounded" alt="Poster">
                 </div>
                 <div class="col-md-9 text-lg-left">

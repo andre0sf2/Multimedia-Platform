@@ -16,6 +16,7 @@
 
     <title>{{$title}}</title>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
@@ -48,7 +49,7 @@
             </div>
         </nav>
 
-        <div class="my-4">
+        <div class="container mx-auto my-4">
             @yield('content')
         </div>
     </div>
