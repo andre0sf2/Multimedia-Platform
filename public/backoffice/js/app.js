@@ -47320,7 +47320,7 @@ var app = new Vue({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Video__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Folder__ = __webpack_require__(62);
 
 
 /***/ }),
@@ -47330,12 +47330,12 @@ var app = new Vue({
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__VideoComponent__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__VideoComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__VideoComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Folder__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Folder___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Folder__);
 
 
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1__VideoComponent___default.a.name, __WEBPACK_IMPORTED_MODULE_1__VideoComponent___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component(__WEBPACK_IMPORTED_MODULE_1__Folder___default.a.name, __WEBPACK_IMPORTED_MODULE_1__Folder___default.a);
 
 /***/ }),
 /* 63 */
@@ -47363,7 +47363,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/backoffice/components/Video/VideoComponent.vue"
+Component.options.__file = "resources/js/backoffice/components/Folder/Folder.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47372,9 +47372,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-614a5441", Component.options)
+    hotAPI.createRecord("data-v-5eed0614", Component.options)
   } else {
-    hotAPI.reload("data-v-614a5441", Component.options)
+    hotAPI.reload("data-v-5eed0614", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47395,15 +47395,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {},
-    name: 'video-component',
+    name: 'c-folder',
     data: function data() {
         return {};
     },
 
-    methods: {},
+    methods: {
+        selectFolder: function selectFolder(e) {
+            for (var i = 0; i < e.target.files.length; i++) {
+                var s = e.target.files[i].name + '\n';
+                s += e.target.files[i].size + ' Bytes\n';
+                s += e.target.files[i].type;
+                alert(s);
+            }
+        }
+    },
     mounted: function mounted() {}
 });
 
@@ -47415,22 +47425,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("input", {
+      attrs: {
+        type: "file",
+        webkitdirectory: "",
+        mozdirectory: "",
+        msdirectory: "",
+        odirectory: "",
+        directory: ""
+      },
+      on: {
+        change: function($event) {
+          _vm.selectFolder(_vm.event)
+        }
+      }
+    })
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("p", [_vm._v("Hello")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-614a5441", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5eed0614", module.exports)
   }
 }
 
