@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
-define('MOVIE_DIR', getcwd()."/storage/Movies/");
+define('MOVIE_DIR', getcwd()."/storage/movies/");
 
 class HomeController extends Controller
 { 

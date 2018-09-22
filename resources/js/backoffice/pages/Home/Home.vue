@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <c-folder img-src="/storage/icons/folder_1.png"></c-folder>
-    </div>
+    
 </template>
 
 <script>
     export default {
-        name: '',
+        name: 'Home',
         props: {},
         computed: {},
         data() { 

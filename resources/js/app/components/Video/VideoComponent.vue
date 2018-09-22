@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <video id="video" controls controlsList="nodownload" preload="metadata">
+        <video id="video" controls controlsList="nodownload" preload="metadata" style="max-width: 75vw;">
             <source :src="videoSrc" type="video/mp4">
             <track v-for="(s, i) in subSrc" :key="i" :id="'sub-track'+i" kind="captions">
         </video>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>{{path}}</h2>
+        <h2>Selecionar este caminho?: {{path}}</h2>
         <div class="row">
             <div v-for="(folder, i) in folders" :key="i"  class="col-md-2 text-center">
                 <div v-if="folder.name !== '..'">
@@ -41,6 +41,11 @@
                     console.log(error);
                 })
             },
+            selectPath(){
+                const self = this;  
+
+                console.log(path);
+            }
         },
         mounted() {
             this.getFolders('');
