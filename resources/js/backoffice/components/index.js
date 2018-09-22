@@ -1,1 +1,3 @@
-import './Folder';
+import './FolderComponent';
+import './Auth';
+import './Navbar'

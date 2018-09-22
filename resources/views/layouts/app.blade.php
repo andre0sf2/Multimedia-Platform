@@ -16,7 +16,7 @@
 
     <title>{{$title}}</title>
 
-    <link rel="shortcut icon" href="{{asset('/storage/imgs/logo.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('/storage/icons/logo.png')}}" type="image/x-icon">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,7 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="/">
-                <img src="{{asset('/storage/imgs/logo.png')}}" width="30" height="30" alt=""> FigsPlatform
+                <img src="{{asset('/storage/icons/logo.png')}}" width="30" height="30" alt=""> FigsPlatform
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

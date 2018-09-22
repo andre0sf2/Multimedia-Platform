@@ -1,6 +1,6 @@
-import DashboardPage from './Dashboard';
+import HomePage from './Home';
 
 let routes = [];
-routes.push.apply(routes, DashboardPage);
+routes.push.apply(routes, HomePage);
 
 export default routes

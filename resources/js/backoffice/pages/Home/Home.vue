@@ -1,6 +1,6 @@
 <template>
     <div>
-        hi
+        <c-folder img-src="/storage/icons/folder_1.png"></c-folder>
     </div>
 </template>
 

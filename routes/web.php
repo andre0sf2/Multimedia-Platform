@@ -19,5 +19,7 @@ Route::namespace('BackOffice')->group(function() {
 
 Route::get('/movies', 'MovieController@getAllMovies')->name('movies');
 Route::get('/movies/{name}', 'MovieController@getMovie')->name('movie');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Auth::routes();
+

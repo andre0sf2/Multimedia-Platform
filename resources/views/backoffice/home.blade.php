@@ -1,7 +1,6 @@
 @extends('backoffice.layouts.app')
 
 @section('content')
-<div class="col-sm-12">
-    <router-view></router-view>
-</div>
+<navbar-vue :user="{{json_encode(Auth::user())}}" ></navbar-vue>
+<router-view></router-view>
 @endsection
